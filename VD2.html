@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+     .demo{
+    margin-left: 70px;
+    color: red;
+    }
+</style>
+
+<body>
+    <form action="" name="dangky" method="post" onsubmit="return Kiemtraform()">
+        <label for="name">Họ và tên</label>
+        <input type="text" name="name" id="name" value=""> <br>
+        <span id="error-name" class="demo"></span>
+        <br><br>
+        <label for="pass">Mật khẩu</label>
+        <input type="password" name="pass" id="pass" value=""><br>
+        <span id="error-pass" class="demo"></span>
+        <br><br>
+        <label for="checkpass">Khẳng định mật khẩu</label>
+        <input type="password" name="checkpass" id="checkpass" value=""> <br>
+        <span id="error-checkpass" class="demo"></span>
+        <br><br>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="">   <br>
+        <span id="error-email" class="demo"></span>
+        <br><br>
+        <label for="tel">Số điện thoại</label>
+        <input type="tel" name="tel" id="tel" value=""> <br>
+        <span id="error-tel" class="demo"></span>
+        <br><br>
+        <input type="submit" value="Đăng ký" > 
+    </form>
+</body>
+</html>
+
+
+<script>
+    function Kiemtraform(){
+      //  var check=true;
+        var form=document.forms["dangky"];
+        var name=form["name"].value;
+
+
+        if(ten==""){
+           document.getElementById("error-name").innerHTML="Chưa nhập tên";
+           return false;
+        }else{
+            document.getElementById("error-name").innerHTML="";
+           return true ;
+        }
+
+
+        var pass=form["pass"].value;
+         if(pass=="" ){
+            document.getElementById("error-pass").innerHTML="Chưa mật khẩu ";
+          return false;
+        }else{
+            document.getElementById("error-pass").innerHTML=" ";
+           return true;
+        }
+
+        var checkpass=form["checkpass"].value;
+         if(checkpass==""){
+            document.getElementById("error-checkpass").innerHTML="Chưa nhập khẳng định mật khẩu";
+          return false;
+        }else{
+            document.getElementById("error-checkpass").innerHTML="";
+          return true;
+        }
+
+        var email=form["email"].value;
+         if(email==""){
+            document.getElementById("error-email").innerHTML="Chưa nhập email";
+          check= false;
+        }else{
+            document.getElementById("error-email").innerHTML="";
+          return;
+        }
+
+        var tel=form["tel"].value;
+        if(tel==""){
+            document.getElementById("error-tel").innerHTML="Chưa nhập số diện thoại";
+           return false;
+        }else{
+            document.getElementById("error-tel").innerHTML="";
+            return true;
+        }
+    }
+</script>

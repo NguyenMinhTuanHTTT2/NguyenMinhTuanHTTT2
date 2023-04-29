@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+     #error-name{
+        color: red;
+     }
+</style>
+
+<script>
+    function Checkname(){
+        alert("1");
+    }
+</script>
+
+
+<body>
+        <div class="container">
+            <div class="banner">
+                <form action="" method="post"> 
+                    <label for="name">Họ tên <span style="color: red;">*</span></label> <span id="error-name"></span> <br>
+                    <input type="text" id="name" onblur="Checkname()">  <br>          
+                       <br><br>
+                      
+                    <label for="pass">Mật khẩu</label><span style="color: red;">*</span></label> <span style="color: red;" id="error-pass"></span> <br>
+                    <input type="password" name="pass" id="pass" onblur="Checkpass()">  <br>
+                    <br><br>
+
+                    <label for="checkpass">Khẳng định mật khẩu</label><span style="color: red;">*</span></label> <span style="color: red;" id="error-checkpass"></span> <br>
+                    <input type="password" name="checkpass" id="checkpass" onblur="Checkpass_next()">  <br>
+
+                    <label for="email">Nhập email</label><span style="color: red;">*</span></label> <span id="error-name"></span> <br>
+                    <input type="email" name="email" id="email" onblur="Checkemail();">  <br>
+                    <span id="error-email"></span> <br> <br>
+
+                    <label for="tel">Số điện thoại</label> <span style="color: red;">*</span></label> <span id="error-name"></span> <br>
+                    <input type="tel" name="tel" id="tel"> <br>
+                    <span id="error-tel"></span> <br><br>
+                    
+                    <button type="submit" onclick="Checkchung() ; return false" >Đăng ký</button>
+               </form>
+            </div>
+        </div>
+</body>
+</html>
+
+<script>
+    function Checkname(){
+        var name=document.getElementById("name").value;
+        var error_name=document.getElementById("error-name");
+    // Kiểm tra(Chữ phải viết hoa ở đầu tiên và có  chữ thường và không được có số)
+        var regexpName=/^([A-Z])[^\d+]*[\d+]{0}[^\d+]*$/;
+        if( name==""){
+            error_name.innerHTML="Họ tên không được để trống";
+        }else if(!regexpName.test(name)){
+            error_name.innerHTML="Họ tên vừa nhập không hợp lệ ";
+        }
+        else{
+            error_name.innerHTML="";
+            return name;
+        }
+    }
+
+    function Checkpass(){
+        var pass=document.getElementById("pass").value;
+        var errorPass=document.getElementById("error-pass");
+        var regexpPass1=/\s/;
+        var regexpPass2=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        if( pass==""){
+            errorPass.innerHTML="Mật khẩu không được để trống";
+        }else if(regexpPass1.test(pass)){
+            errorPass.innerHTML="Mật khẩu không  chứa dấu cách";
+
+        }else if(!regexpPass2.test(pass)){
+            errorPass.innerHTML="Mật khẩu không  đúng yêu cầu";
+        }else{
+            errorPass.innerHTML=" ";
+            return pass;
+        }
+    }
+
+
+    // function Checkpass_next(){
+    //     var checkpass=document.getElementById("checkpass").value;
+    //     var errorCheckPass=document.getElementById("error-checkpass");
+    //     var regexpCheckPass=/\s/;
+    //  //   var regexpPass2=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    //     if(checkpass==null || checkpass==""){
+    //         errorCheckPass.innerHTML="Mật khẩu không được để trống";
+    //     }else if(regexpPass1.test(pass)){
+    //         errorCheckPass.innerHTML="Mật khẩu không  chứa dấu cách";
+
+    //     }else if(checkpass!=pass){
+    //         alert("Mật khẩu và khẳng định mật khẩu không trùng khớp");
+    //     }else{
+    //         errorCheckPass.innerHTML="";
+    //         return checkpass;
+    //     }
+    // }
+
+
+
+    function Checkemail(){
+    var checkemail=   /^[A-Za-z][\w$.]+@[\w]+\.\w+$/;
+    }
+
+    function Checktel(){
+        //Bắt đầu số 0 
+        var regExpTel = /^(0[234][0-9]{8}|1[89]00[0-9]{4})$/;
+    }
+
+
+
+</script>

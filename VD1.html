@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="dangky" method="post" onsubmit="return Kiemtraform()">
+      Họ và tên  <input type="text" name="name"   > <br> <br>
+
+    Mật khẩu <input type="password" name="pass" > <br><br>
+
+        <input type="submit" value="Đăng nhập">
+    </form>
+</body>
+</html>
+
+<script>
+    function Kiemtraform(){
+        var form=document.forms["dangky"];
+        var name=form["name"].value;
+//  Kiểm tra độ mạnh của mật khẩu 
+        var pass=form["pass"].value;
+        var regexp=/^[A-Z]/;
+        if(name==null || name==""){
+            alert("Xin vui lòng nhập họ tên");
+            return false;
+        }else if(pass==null || pass==""){
+            alert("Xin vui lòng nhập mật khẩu");
+            return false;
+        }else if(!isNaN(name)){
+            alert("Họ tên có chữ số xin vui lòng nhập lại");
+            return false;
+        }else if(regexp.test(name)){ 
+                return true;
+            }else {
+                alert("Chữ cái đầu tiên phải viết hoa");
+                return false;
+            }if(regexp.test(pass)){
+            return;
+        }else{
+            alert("Nhập mật khẩu chưa đúng");
+            return false;
+        }
+        }
+    
+
+
+        
+        
+
+        return true;
+    }
+</script>

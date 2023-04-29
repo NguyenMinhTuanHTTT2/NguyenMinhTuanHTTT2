@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="form" onsubmit="return Checkform()" method="post">
+        <h1>Đăng ký thành viên</h1>
+
+        <label for="name">Nhập họ và tên</label>
+        <input type="text" name="name" id="name" value=""> <br>
+        <span id="error" class=""></span>
+
+        <label for="pass">Mật khẩu</label>
+        <input type="password" name="pass" id="pass" value=""> <br><br>
+
+        <label for="checkpass">Khẳng định mật khẩu</label>
+        <input type="password" name="checkpass" id="checkpass" value=""> <br><br>
+
+        <label for="time">Ngày tháng năm sinh</label>
+        <input type="date" name="time" id="time" value=""> <br><br>
+
+        <label for="tel">Số điện thoại</label>
+        <input type="tel" name="tel" id="tel" value=""> <br><br>
+        <label for="img">Đường dẫn ảnh</label>
+        <input type="file" name="img" id="img" value=""> <br><br>
+        
+        <button onclick="Dangky() ; return false">Đăng ký</button>
+        <input type="reset" value="Hủy bỏ">
+    </form>
+</body>
+</html>
+
+<script>
+    function Dangky(){
+        var name=document.getElementById("name").value;
+        var pass=document.getElementById("pass").value;
+        var checkpass=document.getElementById("checkpass").value;
+       const time=document.getElementById("time").value;
+        const tel=document.getElementById("tel").value;
+        var img=document.getElementById("img").value;
+        
+        if(name==null || name=="" ){
+            alert("Chưa nhập họ tên,xin vui lòng nhập họ tên");
+            return false;
+        }
+        else if(pass==null || pass==""){
+            alert("Chưa nhập mật khẩu");
+            return false;
+        }
+        else if(checkpass==null || checkpass==""){
+            document.getElementById
+            return false;
+        }
+        else if( time==null ){
+            alert("Chưa chỉnh thời gian");  
+        }
+        else if(tel==null || tel==""){
+            return false;
+        }else if(img==null){
+            return false;
+        }
+    }
+</script>
